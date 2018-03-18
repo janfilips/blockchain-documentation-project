@@ -1,0 +1,13 @@
+block = {
+    'index': 1,
+    'timestamp': 1506123125,
+    'transactions': [
+        {
+            'sender': "8527147jh1g23jhg12j3hgj12hg31j2gh37ee00",
+            'recipient': "a77f12j3h1kjh23kj12h3k1jhk2jh3123",
+            'amount': 5,
+        }
+    ],
+    'proof': 324123123774000,
+    'previous_hash': "2cf24dba5fbllkj1l2j3lk1j2lk3j12lkj3lj12l3kjl12kj3l12kj3l12kj3lk21jl31kj2"
+}
