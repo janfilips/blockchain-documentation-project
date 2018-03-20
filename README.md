@@ -1,2 +1,16 @@
-# blockchain
-simple blockchain written in python
+# Blockchain
+
+Simple blockchain implementation written in python.
+
+
+### Before you get started
+
+
+
+License
+----
+
+BSD 2-Clause "Simplified" License
+
+
+**Free Software, Hell Yeah!**
