@@ -1,5 +1,5 @@
 class BlockChain(object):
-    """ Mwah."""
+    """ Main BlockChain class """
     def __init__(self):
         self.chain = []
         self.current_transactions = []
