@@ -36,12 +36,12 @@ class BlockChain(object):
         # returns the full chain and a number of blocks
         pass
 
-    def add_new_transaction(self, sender, recipient, data):
+    def new_transaction(self, sender, recipient, amount):
         # adds a new transaction into the list of transactions
         # these transactions go into the next mined block
         self.current_transactions.append({
             "sender":sender,
             "recient":recipient,
-            "data":data,
+            "data":amount,
         })
         return int(self.last_block['index'])+1
