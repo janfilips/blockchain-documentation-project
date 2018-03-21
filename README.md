@@ -182,7 +182,7 @@ while sha256(f'{x*y}'.encode()).hexdigest()[-1] != "0":
 print(f'The solution is y = {y})
 ```
 
-The solution in this case is ```y = 42``` since it procuced hash ending in 0.
+The solution in this case is ```y = 42``` since it procuced hash ```0```.
 
 ```python
 hash(5 * 21) = "12523e93743e8a2814h21k23a2bb3554b565e3600155e860"
