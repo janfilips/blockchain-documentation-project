@@ -125,7 +125,6 @@ class BlockChain(object):
             'proof': proof,
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
         }
-
         # reset the current list of transactions
         self.current_transactions = []
         self.chain.append(block)
