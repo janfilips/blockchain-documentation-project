@@ -191,11 +191,10 @@ hash(5 * 21) = "12523e93743e8a2814h21k23a2bb3554b565e3600155e860"
 In the Bitcoin world, the Proof of Work algorithm is called Hashcash.  And it'a not any different from the example above.  It's the very algorithm that miners race to solve in order to create a new block.  The difficulty is of course determined by the number of the characters searched for in the string. In our example we simplified it by defining that the resultant hash must end in 0 to make the whole thing in our case quicker and less resource intensive but this is how it works really.
 The miners are rewarded for finding a solution by receiving a coin. In a transaction. There are many opinions on effectiness of this but this is how it works. And it's really is that simple and this way the network is able to easily verify their solution. :)
 
+** Editor's note: 4B4F4B4F54 in the example above in hex = "kokot" lol. :D
 
-** Editor's note: 4b4f4b4f54 in the example above in hex = "kokot" lol. :D
 
-
-### Implementing the real Proof of Work
+### Understanding Proof of Work
 
 XXX
 
