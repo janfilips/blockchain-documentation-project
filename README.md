@@ -96,6 +96,40 @@ The new_transaction returns index of the block which will be added to current_tr
 
 xxx
 
+
+# Step 2: Blockchain as an API
+
+xxx
+
+
+# Step 3: Interacting with out blockchain
+
+xxx
+
+
+# Step 4: Consensus
+
+
+xxx
+
+
+# Step 5: Transaction verification
+
+For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime.
+
+We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates.
+
+For more information on the X.509 please refer to the X.509 documentation.  More on that here https://en.wikipedia.org/wiki/X.509    
+
+
+
+# Step 5: Introducing new coins for our blockchain
+
+xxx
+
+
+
+
 License
 ----
 
