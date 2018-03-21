@@ -109,7 +109,6 @@ xxx
 
 # Step 4: Consensus
 
-
 xxx
 
 
@@ -119,7 +118,7 @@ For this we will be using Python NaCl to generate a public/private signing key p
 
 We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates.
 
-For more information on the X.509 please refer to the X.509 documentation.  More on that here https://en.wikipedia.org/wiki/X.509    
+For more information on the X.509 please refer to the X.509 documentation.  More on that [here](https://en.wikipedia.org/wiki/X.509).
 
 
 
