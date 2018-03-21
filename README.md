@@ -153,6 +153,11 @@ At this point, we're nearly done representing our blockchain.
 
 So lets talk about how the new blocks are created, forged and mined. :)
 
+### Understanding Proof of Work
+
+XXX
+
+
 
 # Step 2: Blockchain as an API
 
