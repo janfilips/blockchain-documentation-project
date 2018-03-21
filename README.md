@@ -155,8 +155,49 @@ So lets talk about how the new blocks are created, forged and mined. :)
 
 ### Understanding Proof of Work
 
-XXX
+A proof of work algorithm are how new Blocks are created or mined on the blockchain.
 
+The goal is to discover a number that solves a problem.
+
+The number must be difficult and resources consuming to find but super quick and easy to verify.
+
+This is the core idea of Proof of Work.  :)
+
+
+So lets work out some stupid-shit math problem that we are going to require to be solved in order for a block to be mined.
+
+Lets say that hash of some integer ```x``` multiplied by another ```y``` must always end in 0.  So, as an example, the ```hash(x * y) = 4b4f4b4f54...0```.
+
+Lets take this by an example and fix the ```x = 10```.
+
+```python
+from hashlib import sha256
+
+x = 10
+y = 0 # we do not know what y should be yet
+
+while sha256(f'{x*y}'.encode()).hexdigest()[-1] != "0":
+    y+1
+
+print(f'The solution is y = {y})
+```
+
+The solution in this case is ```y = 42``` since it procuced hash ending in 0.
+
+```python
+hash(5 * 21) = 1253e9373e...5e3600155e860
+```
+
+In the Bitcoin world, the Proof of Work algorithm is called Hashcash.  And it'a not any different from the example above.  It's the very algorithm that miners race to solve in order to create a new block.  The difficulty is of course determined by the number of the characters searched for in the string. In our example we simplified it by defining that the resultant hash must end in 0 to make the whole thing in our case quicker and less resource intensive but this is how it works really.
+The miners are rewarded for finding a solution by receiving a coin. In a transaction. There are many opinions on effectiness of this but this is how it works. And it's really is that simple and this way the network is able to easily verify their solution. :)
+
+
+** Editor's note: 4b4f4b4f54 in the example above in hex = "kokot" lol. :D
+
+
+### Implementing the real Proof of Work
+
+XXX
 
 
 # Step 2: Blockchain as an API
@@ -180,7 +221,7 @@ For this we will be using Python NaCl to generate a public/private signing key p
 
 We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates.
 
-For more information on the X.509 please refer to the X.509 documentation.  More on that [here](https://en.wikipedia.org/wiki/X.509).
+For more information on the X.509 please refer to the X.509 documentation.  More on the X.509 specification can be found [here](https://en.wikipedia.org/wiki/X.509).
 
 
 # Step 5: Basic contracts (P2P Protocol)
