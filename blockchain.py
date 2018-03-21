@@ -1,3 +1,7 @@
+import hashlib
+import json
+import time
+
 class BlockChain(object):
     """ Main BlockChain class """
     def __init__(self):
@@ -9,20 +13,22 @@ class BlockChain(object):
     @staticmethod
     def hash(block):
         # hashes a block
-        pass
+        # also make sure that the transactions are ordered otherwise we will have insonsistent hashes!
+        block_string = json.dumps(block, sort_keys=True).encode()
+        return hashlib.sha256(block_string).hexdigest()
 
     def new_block(self, proof, previous_hash=None):
         # creates a new block in the blockchain
         block = {
             'index': len(self.chain)+1,
-            'timestamp': time(),
+            'timestamp': time.time(),
             'transactions': self.current_transactions,
             'proof': proof,
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
         }
 
         # reset the current list of transactions
-        self.current_transactions=[]
+        self.current_transactions = []
         self.chain.append(block)
 
         return block
