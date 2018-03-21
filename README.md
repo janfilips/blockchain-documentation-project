@@ -92,7 +92,9 @@ class Blockchain(object):
 
 The new_transaction returns index of the block which will be added to current_transactions and is next one to be mined..
 
+### Creating new blocks
 
+xxx
 
 License
 ----
