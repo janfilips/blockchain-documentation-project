@@ -219,8 +219,6 @@ xxx
 
 For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime. We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates. 
 
-For more information on the X.509 please refer to the [X.509 documentation](https://en.wikipedia.org/wiki/X.509).
-
 
 # Step 5: Basic contracts (P2P Protocol)
 
