@@ -102,7 +102,7 @@ xxx
 xxx
 
 
-# Step 3: Interacting with out blockchain
+# Step 3: Interacting with our blockchain
 
 xxx
 
