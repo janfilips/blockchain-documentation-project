@@ -94,7 +94,23 @@ The new_transaction returns index of the block which will be added to current_tr
 
 ### Creating new blocks
 
-xxx
+In addition to creating the genesis block in our constructor, we will also need to flesh out methods for the new_block(), add_new_transaction() and hash().
+
+
+```python
+import hashlib
+import json
+from time import time
+
+class BlockChain(object):
+    XXX
+```
+
+Once our block is initiated, we need to feed it with the genesis block (a block with no predecessors). We will also need to add "a proof of work" to our genesis block which is the result of mining.
+
+At this point, we're nearly done representing our blockchain.
+
+So lets talk about how the new blocks are created, forged and mined. :)
 
 
 # Step 2: Blockchain as an API
@@ -135,5 +151,6 @@ License
 ----
 
 BSD-2-Clause
+
 
 **Free Software, Hell Yeah!**
