@@ -73,9 +73,30 @@ Each block contains the hash and the hash of the previous block. This is what gi
 
 It's the core idea of blockchains. :)
 
+
+### Adding transactions to the block
+
+We will need some way of adding transactions to the block.
+
+```python
+class Blockchain(object):
+    ...
+    def new_transaction(self, sender, recipient, amount):
+        self.current_transactions.append({
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount,
+        })
+        return self.last_block['index'] + 1
+```
+
+The new_transaction returns index of the block which will be added to current_transactions and is next one to be mined..
+
+
+
 License
 ----
 
-BSD
+BSD-2-Clause
 
 **Free Software, Hell Yeah!**
