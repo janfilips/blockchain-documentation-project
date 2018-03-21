@@ -123,7 +123,7 @@ For more information on the X.509 please refer to the X.509 documentation.  More
 
 
 
-# Step 5: Issuing coins for our blockchain
+# Step 5: Issuing various new coins for our blockchain
 
 xxx
 
