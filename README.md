@@ -26,7 +26,7 @@ Each block has an index, timestamp, transactions, proof (more on that later) and
 
 Here is an example of what a single Block looks like:
 
-```json
+```python
 block = {
     'index': 1,
     'timestamp': 1506092455,
