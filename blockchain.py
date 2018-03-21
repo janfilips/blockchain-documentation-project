@@ -30,7 +30,6 @@ class BlockChain(object):
         # reset the current list of transactions
         self.current_transactions = []
         self.chain.append(block)
-
         return block
 
     @property
