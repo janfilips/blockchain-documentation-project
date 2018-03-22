@@ -167,12 +167,12 @@ So lets work out some stupid-shit math problem that we are going to require to b
 
 Lets say that hash of some integer ```x``` multiplied by another ```y``` must always end in 0.  So, as an example, the ```hash(x * y) = 4b4f4b4f54...0```.
 
-Lets take this by an example and fix the ```x = 10```.
+Lets take this by an example and fix the ```x = 5```.
 
 ```python
 from hashlib import sha256
 
-x = 10
+x = 5
 y = 0 # we do not know what y should be yet
 
 while sha256(f'{x*y}'.encode()).hexdigest()[-1] != "0":
@@ -181,10 +181,10 @@ while sha256(f'{x*y}'.encode()).hexdigest()[-1] != "0":
 print(f'The solution is y = {y})
 ```
 
-The solution in this case is ```y = 42``` since it procuced hash ```0```.
+The solution in this case is ```y = 21``` since it procuced hash ```0```.
 
 ```python
-hash(5 * 21) = "12523e93743e8a2814h21k23a2bb3554b565e3600155e860"
+hash(5 * 21) = "12523e93743...65e3655e860"
 ```
 
 In the Bitcoin world, the Proof of Work algorithm is called Hashcash.  And it's not any different from the example above.  It's the very algorithm that miners race to solve in order to create a new block.  The difficulty is of course determined by the number of the characters searched for in the string. In our example we simplified it by defining that the resultant hash must end in 0 to make the whole thing in our case quicker and less resource intensive but this is how it works really.
