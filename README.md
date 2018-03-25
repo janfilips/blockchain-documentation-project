@@ -231,7 +231,17 @@ Now, our Blockchain class is pretty much complete, let's begin to interact with 
 
 # Step 2: Blockchain as an API
 
-xxx
+We'll use Python Flask framework.  It's a micro-framework and it's really easy to use so for our example it'll do nicely.
+
+We'll create three simple API endpoints:
+
+  - /transactions/new to create a new transaction block
+  - /mine to tell our service to mine a new block
+  - /chain to return the full Blockchain
+
+### Setting up Flask
+
+Our server will form a single node in our
 
 
 # Step 3: Interacting with our blockchain
@@ -255,6 +265,10 @@ xxx
 
 
 # Step 6: Smart wallet
+
+xxx
+
+# Step 7: Connecting multiple Nodes
 
 xxx
 
