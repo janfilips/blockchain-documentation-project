@@ -193,10 +193,41 @@ The miners are rewarded for finding a solution by receiving a coin. In a transac
 ** Editor's note: 4b-4f-4b-4f-54 in the example above in hex translates to = "kokot" lol. :D
 
 
-### Understanding Proof of Work
+### Implementing Proof of Work
 
-XXX
+Let's implement a similar algorithm for our blockchain. Our rule will be similar to the example above.
 
+"Find a number p that when hashed with the previous block's solution a hash with 4 leading 0 is produced."
+
+```python
+import hashlib
+import json
+
+from time import time
+from uuid import uuid4
+
+class BlockChain(object):
+    ...
+    def proof_of_work(self, last_proof):
+        # simple proof of work algorithm
+        # find a number p' such as hash(pp') containing leading 4 zeros where p is the previous p'
+        # p is the previous proof and p' is the new proof
+        proof = 0
+        while self.valid_proof(last_proof, proof) is False:
+            proof += 1
+        return proof
+    
+    @staticmethod
+    def validate_proof(last_proof, proof):
+        # validates the proof: does hash(last_proof, proof) contain 4 leading zeroes?
+        guess = f'{last_proof}{proof}'.encode()
+        guess_hash = hashlib.sha256(guess).hexdigest()
+        return guess_hash[:4] == "0000"
+```
+
+To adjust the difficulty of the algorithm, we could modify the number of leading zeors.  But strictly speaking 4 is sufficient enough.  Also, you may find out that adding an extra 0 makes a mammoth difference to the time required to find a solution.
+
+Now, our Blockchain class is pretty much complete, let's begin to interact with the ledger using the HTTP requests.
 
 # Step 2: Blockchain as an API
 
