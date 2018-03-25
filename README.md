@@ -2,11 +2,11 @@
 
 Simple Blockchain implementation written in Python.
 
-Understanding blockchain isn't easy. At least it wasn't for me. I had to go through number of frustrations due to too few funcional examples of how this technology works. And I like learning by doing so if you do the same, allow me to guide you and by the end you will have a functioning Blockchain with a solid idea of how they work.
+Understanding Blockchain isn't easy. At least it wasn't for me. I had to go through number of frustrations due to too few funcional examples of how this technology works. And I like learning by doing so if you do the same, allow me to guide you and by the end you will have a functioning Blockchain with a solid idea of how they work.
 
 ### Before you get started..
 
-Remember that a blockchain is an immutable, sequential chain of records called Blocks. They can contain transactions, files or any data you like, really. But the important thing is that they’re chained together using hashes.
+Remember that a Blockchain is an immutable, sequential chain of records called Blocks. They can contain transactions, files or any data you like, really. But the important thing is that they’re chained together using hashes.
 
 ### What is needed?
 
@@ -44,7 +44,7 @@ block = {
 
 ### Represenging a Blockchain
 
-We'll create a blockchain class whose constructor creates a list to store our blockchain and another to store transactions.  Here is how the Class will look like:
+We'll create a Blockchain class whose constructor creates a list to store our Blockchain and another to store transactions.  Here is how the Class will look like:
 
 ```python
 class BlockChain(object):
@@ -79,7 +79,7 @@ It's the core idea of blockchains. :)
 We will need some way of adding transactions to the block.
 
 ```python
-class Blockchain(object):
+class BlockChain(object):
     ...
     def new_transaction(self, sender, recipient, amount):
         self.current_transactions.append({
@@ -117,7 +117,7 @@ class BlockChain(object):
         return hashlib.sha256(block_string).hexdigest()
 
     def new_block(self, proof, previous_hash=None):
-        # creates a new block in the blockchain
+        # creates a new block in the Blockchain
         block = {
             'index': len(self.chain)+1,
             'timestamp': time.time(),
@@ -148,13 +148,13 @@ class BlockChain(object):
 
 Once our block is initiated, we need to feed it with the genesis block (a block with no predecessors). We will also need to add "a proof of work" to our genesis block which is the result of mining.
 
-At this point, we're nearly done representing our blockchain.
+At this point, we're nearly done representing our Blockchain.
 
 So lets talk about how the new blocks are created, forged and mined. :)
 
 ### Understanding Proof of Work
 
-A proof of work algorithm are how new Blocks are created or mined on the blockchain.
+A proof of work algorithm are how new Blocks are created or mined on the Blockchain.
 
 The goal is to discover a number that solves a problem.
 
@@ -195,7 +195,7 @@ The miners are rewarded for finding a solution by receiving a coin. In a transac
 
 ### Implementing Proof of Work
 
-Let's implement a similar algorithm for our blockchain. Our rule will be similar to the example above.
+Let's implement a similar algorithm for our Blockchain. Our rule will be similar to the example above.
 
 "Find a number p that when hashed with the previous block's solution a hash with 4 leading 0 is produced."
 
@@ -241,10 +241,10 @@ We'll create three simple API endpoints:
 
 ### Setting up Flask
 
-Our server will form a single node in our
+Our server will form a single node in our Blockchain
 
 
-# Step 3: Interacting with our blockchain
+# Step 3: Interacting with our Blockchain
 
 xxx
 
