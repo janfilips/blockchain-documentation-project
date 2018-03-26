@@ -1,6 +1,6 @@
-# Blockchain from scratch
+# How to build your Blockchain from scratch
 
-..or how to build your own Blockchain in Python from fucking scratch :)
+Blockchain implementation in Python from fucking scratch :)
 
 Understanding Blockchain isn't easy. At least it wasn't for me. I had to go through number of frustrations due to too few funcional examples of how this technology works. And I like learning by doing so if you do the same, allow me to guide you and by the end you will have a functioning Blockchain with a solid idea of how they work.
 
