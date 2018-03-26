@@ -249,9 +249,6 @@ from uuid import uuid4
 
 from flask import Flask, jsonify, request
 
-class BlockChain(object):
-    ...
-
 # initiate the node
 app = Flask(__name__)
 # generate a globally unique address for this node
