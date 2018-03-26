@@ -241,7 +241,88 @@ We'll create three simple API endpoints:
 
 ### Setting up Flask
 
-Our server will form a single node in our Blockchain
+Our server will form a single node in our Blockchain.  So let's create some code.
+
+```python
+import hashlib
+import json
+from time import time
+from uuid import uuid4
+
+from flask import Flask, jsonify, request
+
+class BlockChain(object):
+    ...
+
+# initiate the node
+app = Flask(__name__)
+# generate a globally unique address for this node
+node_identifier = str(uuid4()).replace('-', '')
+# initiate the Blockchain
+blockchain = BlockChain()
+
+@app.route('/mine', methods=['GET']):
+    return "We will mine a new block"
+
+@app.route('/transaction/new', methods=['GET']):
+    return "We will add a new transaction"
+
+@app.route('/chain', methods=['GET']):
+    response = {
+        'chain': blockchain.chain,
+        'length': len(blockchain.chain),
+    }
+    return jsonify(response), 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', 5000)
+```
+
+### The transaction endpoint
+
+This is what the request for the transaction will look like. It's what the user will send to the server.
+
+```json
+{
+    "sender": "sender_address",
+    "recipient": "recipient_address",
+    "amount": 100
+}
+```
+
+Since we already have the method for adding transactions to a block, the rest is easy and pretty straight forward.
+
+```python
+import hashlib
+import json
+
+from time import time
+from uulib import uulib4
+from flask import Flask, jsonify, request
+
+...
+
+@app.route('/transactions/new', methods=['POST'])
+def new_transaction():
+
+    values = request.get_json()
+    required = ['sender', 'recipient', 'amount']
+
+    if not all(k in values for k in required):
+        return 'Missing values', 400
+
+    # create a new transaction
+    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
+    response = {'message': f'Transaction will be added to the Block {index}'}
+
+    return jsonify(response, 201)
+```
+
+### The mining endpoint
+
+Our mining endpoint is where the mining happens and it's actually very easy as all it has to do are three things:
+
+xxx
 
 
 # Step 3: Interacting with our Blockchain
