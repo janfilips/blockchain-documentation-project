@@ -261,13 +261,13 @@ node_identifier = str(uuid4()).replace('-', '')
 # initiate the Blockchain
 blockchain = BlockChain()
 
-@app.route('/mine', methods=['GET']):
+@app.route('/mine', methods=['GET'])
     return "We will mine a new block"
 
-@app.route('/transaction/new', methods=['GET']):
+@app.route('/transaction/new', methods=['GET'])
     return "We will add a new transaction"
 
-@app.route('/chain', methods=['GET']):
+@app.route('/chain', methods=['GET'])
     response = {
         'chain': blockchain.chain,
         'length': len(blockchain.chain),
