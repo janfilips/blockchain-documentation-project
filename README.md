@@ -322,7 +322,56 @@ def new_transaction():
 
 Our mining endpoint is where the mining happens and it's actually very easy as all it has to do are three things:
 
-xxx
+1) Calculate proof of work
+
+2) Reward the miner by adding a transaction granting miner 1 coin
+
+3) Forge the new Block by adding it to the chain
+
+
+So, let's add on the mining function on our API:
+
+```python
+import hashlib
+import json
+
+from time import time
+from uulib import uulib4
+from flask import Flask, jsonify, request
+
+...
+
+
+@app.route('/mine', methods=['GET'])
+def mine():
+
+    # first we have to run the proof of work algorithm to calculate the new proof..
+    last_block = blockchain.last_block
+    last_proof = last_block['proof']
+    proof = blockchain.proof_of_work(last_proof)
+
+    # we must receive reward for finding the proof
+    blockchain.new_transaction(
+        sender=0,
+        recipient=node_identifier,
+        amount=1,
+    )
+
+    # forge the new block by adding it to the chain
+    previous_hash = blockchain.hash(last_block)
+    block = blockchain.new_block(proof, previous_hash)
+
+    response = {
+        'message': "Forged New Block.",
+        'index': block['index'],
+        'transactions': block['transaction'],
+        'proof': block['proof'],
+        'previous_hash': block['previous_hash'],
+    }
+    return jsonify(response), 200
+```
+
+At this point, we are done, and we can start interacting with out blockchain.  :)
 
 
 # Step 3: Interacting with our Blockchain
