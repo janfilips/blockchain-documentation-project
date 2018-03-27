@@ -336,7 +336,6 @@ from flask import Flask, jsonify, request
 
 ...
 
-
 @app.route('/mine', methods=['GET'])
 def mine():
 

@@ -1,8 +1,10 @@
 import hashlib
 import json
-
 from time import time
 from uuid import uuid4
+
+from flask import Flask, jsonify, request
+
 
 class BlockChain(object):
     """ Main BlockChain class """
@@ -68,3 +70,5 @@ class BlockChain(object):
     def full_chain(self):
         # returns the full chain and a number of blocks
         pass
+
+
