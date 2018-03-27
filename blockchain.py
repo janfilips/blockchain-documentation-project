@@ -71,4 +71,7 @@ class BlockChain(object):
         # returns the full chain and a number of blocks
         pass
 
+@app.route('/mine', methods="GET")
+def mine():
+    pass
 
