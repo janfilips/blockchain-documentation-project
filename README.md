@@ -359,7 +359,7 @@ def mine():
     block = blockchain.new_block(proof, previous_hash)
 
     response = {
-        'message': "Forged New Block.",
+        'message': "Forged New Block",
         'index': block['index'],
         'transactions': block['transaction'],
         'proof': block['proof'],
