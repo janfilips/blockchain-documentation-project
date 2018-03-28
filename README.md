@@ -182,7 +182,7 @@ print(f'The solution is y = {y})
 The solution in this case is ```y = 21``` since it procuced hash ```0```.
 
 ```python
-hash(5 * 21) = "12523e93743...65e3655e860"
+hash(5 * 21) = "1253e9373e781b7500266caa55150e08e210bc8cd8cc70d89985e3600155e860"
 ```
 
 In the Bitcoin world, the Proof of Work algorithm is called Hashcash.  And it's not any different from the example above.  It's the very algorithm that miners race to solve in order to create a new block.  The difficulty is of course determined by the number of the characters searched for in the string. In our example we simplified it by defining that the resultant hash must end in 0 to make the whole thing in our case quicker and less resource intensive but this is how it works really.
