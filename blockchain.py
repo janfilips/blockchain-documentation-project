@@ -87,7 +87,7 @@ def mine():
     last_proof = last_block['proof']
     proof = blockchain.proof_of_work(last_proof)
 
-    # we must recieve reward for finding the proof
+    # we must recieve reward for finding the proof in form of receiving 1 Coin
     blockchain.new_transaction(
         sender=0,
         recipient=node_identifier,
@@ -95,7 +95,7 @@ def mine():
     )
 
     # forge the new block by adding it to the chain
-    previous_hash = blockchain.hash[last_block]
+    previous_hash = blockchain.hash(last_block)
     block = blockchain.new_block(proof, previous_hash)
 
     response = {
