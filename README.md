@@ -404,15 +404,60 @@ So first off let's try mining a block by making a GET request to the "mine" http
 ]
 ```
 
-Very good! :)
+Motherfucker, very good! :)
 
 Now lets create a new transaction by making a POST request to http://localhost:7777/transaction/new with a body containing our transaction structure. Let's make this call using the cURL:
 
 ```
-$ curl -X POST -H ... XXXXXxxxxxxx
+curl -X POST -H "Content-Type: application/json" -d '{
+ "sender": "d4ee26eee15148ee92c6cd394edd974e",
+ "recipient": "recipient-address",
+ "amount": 5
+}' "http://localhost:5000/transactions/new"
 ```
 
-XXX
+I have restarted the server, mined two blocks, to give 3 in total.  So let's inspect the full chain by requesting http://localhost:5000/chain:
+
+```json
+{
+  "chain": [
+    {
+      "index": 1,
+      "previous_hash": 1,
+      "proof": 100,
+      "timestamp": 1506280650.770839,
+      "transactions": []
+    },
+    {
+      "index": 2,
+      "previous_hash": "c099bc...bfb7",
+      "proof": 35293,
+      "timestamp": 1506280664.717925,
+      "transactions": [
+        {
+          "amount": 1,
+          "recipient": "8bbcb347e0631231...e152b",
+          "sender": "0"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "previous_hash": "eff91a...10f2",
+      "proof": 35089,
+      "timestamp": 1506280666.1086972,
+      "transactions": [
+        {
+          "amount": 1,
+          "recipient": "9e2e234e12e0631231...e152b",
+          "sender": "0"
+        }
+      ]
+    }
+  ],
+  "length": 3
+}
+```
 
 # Step 4: Consensus
 
