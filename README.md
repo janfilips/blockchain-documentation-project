@@ -481,7 +481,8 @@ xxx
 
 # Step 7: Smart wallet
 
-xxx
+xxx This is very cool. Wallet is a gateway to decentralized applications on the Blockchain. It allows you to hold and secure tokens and other crypto-assets. This Blockchain example is built on ERC-20 standards and therefore should be compatible and working out of the box with your regular wallet. :)
+
 
 
 License
