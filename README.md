@@ -407,7 +407,7 @@ Motherfucker, very good! :)
 Now lets create a new transaction by making a POST request to http://localhost:7777/transaction/new with a body containing our transaction structure. Let's make this call using the cURL:
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{
+$ curl -X POST -H "Content-Type: application/json" -d '{
  "sender": "d4ee26eee15148ee92c6cd394edd974e",
  "recipient": "recipient-address",
  "amount": 5
