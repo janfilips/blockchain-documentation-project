@@ -461,22 +461,25 @@ I have restarted the server, mined two blocks, to give 3 in total.  So let's ins
 
 xxx
 
+### Registering new Nodes
+
+xxx
+
+### Implementing the Consensus Algorithm
+
+xxx
 
 # Step 5: Transaction verification
 
 For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime. We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates. 
 
 
-# Step 5: Basic contracts (P2P Protocol)
+# Step 6: Basic contracts (P2P Protocol)
 
 xxx
 
 
-# Step 6: Smart wallet
-
-xxx
-
-# Step 7: Connecting multiple Nodes
+# Step 7: Smart wallet
 
 xxx
 
