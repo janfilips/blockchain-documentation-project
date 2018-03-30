@@ -84,7 +84,7 @@ def mine():
 
     # first we need to run the proof of work algorithm to calculate the new proof..
     last_block = blockchain.last_block
-    last_proof = lack_block['proof']
+    last_proof = last_block['proof']
     proof = blockchain.proof_of_work[last_proof]
 
     # we must recieve reward for finding the proof

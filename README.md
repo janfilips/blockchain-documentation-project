@@ -383,6 +383,9 @@ $ python3 blockchain.py
 
 ```
 
+So first off let's try mining a block by making a GET request to the "mine" http://localhost:7777/mine:
+
+XXX
 
 
 # Step 4: Consensus
