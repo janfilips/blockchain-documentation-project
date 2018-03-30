@@ -402,7 +402,7 @@ So first off let's try mining a block by making a GET request to the "mine" http
 ]
 ```
 
-Very good! :)
+Motherfucker, very good! :)
 
 Now lets create a new transaction by making a POST request to http://localhost:7777/transaction/new with a body containing our transaction structure. Let's make this call using the cURL:
 
