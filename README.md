@@ -459,7 +459,7 @@ I have restarted the server, mined two blocks, to give 3 in total.  So let's ins
 
 # Step 4: Consensus
 
-xxx
+This is very cool actually. We've got a fully valid basic Blockchain that accepts transactions and allows us to mine a new block (and ger rewarded for it).  But the whole point of Blockchains is to be decentralized, and how on earth do we ensure that all the data reflect the same chain?  Well, it's actually a well know problem of Consensus, and we are going to have to implement a Consensus Algorithm if we want more that a single node in our network. So better buckle up, we're moving onto registering the new nodes. :)
 
 ### Registering new Nodes
 
