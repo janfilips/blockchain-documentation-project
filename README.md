@@ -273,7 +273,7 @@ def chain():
     return jsonify(response), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', 5000)
+    app.run(host='0.0.0.0', 7777)
 ```
 
 ### The transaction endpoint
@@ -373,7 +373,16 @@ At this point, we are done, and we can start interacting with out blockchain.  :
 
 # Step 3: Interacting with our Blockchain
 
-xxx
+You can use a plain old cURL or Postman to interact with our Blockchain API ovet the network.
+
+Fire up the server:
+
+```
+$ python3 blockchain.py
+* Running on http://127.0.0.1:7777/ (Press CTRL+C to quit)
+
+```
+
 
 
 # Step 4: Consensus
