@@ -56,7 +56,7 @@ class BlockChain(object):
         # find a number p' such as hash(pp') containing leading 4 zeros where p is the previous p'
         # p is the previous proof and p' is the new proof
         proof = 0
-        while self.valid_proof(last_proof, proof) is False:
+        while self.validate_proof(last_proof, proof) is False:
             proof += 1
         return proof
     
