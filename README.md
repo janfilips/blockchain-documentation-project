@@ -273,7 +273,7 @@ def chain():
     return jsonify(response), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', 7777)
+    app.run(host='0.0.0.0', 5000)
 ```
 
 ### The transaction endpoint
@@ -379,7 +379,7 @@ Fire up the server:
 
 ```
 $ python3 blockchain.py
-* Running on http://127.0.0.1:7777/ (Press CTRL+C to quit)
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
 ```
 
