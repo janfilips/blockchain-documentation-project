@@ -385,8 +385,34 @@ $ python3 blockchain.py
 
 So first off let's try mining a block by making a GET request to the "mine" http://localhost:7777/mine:
 
-XXX
+```json
+[
+  {
+    "index": 1, 
+    "message": "Forged new block", 
+    "previous_hash": "7cd122100c9ded644768ccdec2d9433043968352e37d23526f63eefc65cd89e6", 
+    "proof": 35293, 
+    "transactions": [
+      {
+        "data": 1, 
+        "recient": "6a01861c7b3f483eab90727e621b2b96", 
+        "sender": 0
+      }
+    ]
+  }, 
+  200
+]
+```
 
+Very good! :)
+
+Now lets create a new transaction by making a POST request to http://localhost:7777/transaction/new with a body containing our transaction structure:
+
+```json
+xxx
+```
+
+XXX
 
 # Step 4: Consensus
 
