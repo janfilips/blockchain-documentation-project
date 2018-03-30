@@ -381,7 +381,7 @@ $ python3 blockchain.py
 
 ```
 
-So first off let's try mining a block by making a GET request to the "mine" http://localhost:7777/mine:
+So first off let's try mining a block by making a GET request to the "mine" http://localhost:5000/mine:
 
 ```json
 [
@@ -404,7 +404,7 @@ So first off let's try mining a block by making a GET request to the "mine" http
 
 Motherfucker, very good! :)
 
-Now lets create a new transaction by making a POST request to http://localhost:7777/transaction/new with a body containing our transaction structure. Let's make this call using the cURL:
+Now lets create a new transaction by making a POST request to http://localhost:5000/transaction/new with a body containing our transaction structure. Let's make this call using the cURL:
 
 ```
 $ curl -X POST -H "Content-Type: application/json" -d '{
