@@ -138,7 +138,7 @@ class BlockChain(object):
         # these transactions go into the next mined block
         self.current_transactions.append({
             "sender":sender,
-            "recient":recipient,
+            "recipient":recipient,
             "data":amount,
         })
         return int(self.last_block['index'])+1
@@ -393,7 +393,7 @@ So first off let's try mining a block by making a GET request to the "mine" http
     "transactions": [
       {
         "data": 1, 
-        "recient": "6a01861c7b3f483eab90727e621b2b96", 
+        "recipient": "6a01861c7b3f483eab90727e621b2b96", 
         "sender": 0
       }
     ]
