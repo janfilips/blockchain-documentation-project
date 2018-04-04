@@ -609,9 +609,7 @@ xxx
 
 # Step 5: Transaction verification
 
-For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime. We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates. 
-
-xxx
+For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime. We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates.
 
 
 # Step 6: Basic contracts (P2P Protocol)
