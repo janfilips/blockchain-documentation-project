@@ -468,9 +468,26 @@ OK, first off, before you start adding new nodes you'd need to let your node to 
   - /miner/register - to register a new miner node into the operation
   - /miner/nodes/resolve - to implement our consensus algorithm to resolve any potential conflicts, making sure all nodes have the correct and up to date chain
 
-xxx
+First we're goint to modify the Blockchain class constructor and add in the method for registering nodes:
 
 
+```python
+...
+from urllib.parse import urlparse
+...
+
+class BlockChain(object):
+    def __init__(self):
+        ...
+        self.nodes = set()
+        ...
+        
+    def register_miner_node(self, address):
+        # add on the new miner node onto the list of nodes
+        parsed_url = urlparse(address)
+        self.nodes.add(parse_url.netloc)
+        return
+```
 
 ### Implementing the Consensus Algorithm
 
