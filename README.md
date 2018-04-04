@@ -1,4 +1,4 @@
-# How to write Blockchain in Python from scratch
+# Blockchain in Python from scratch
 
 Understanding Blockchain isn't easy. At least it wasn't for me. I had to go through number of frustrations due to too few funcional examples of how this technology works. And I like learning by doing so if you do the same, allow me to guide you and by the end you will have a functioning Blockchain with a solid idea of how they work.
 
@@ -463,7 +463,15 @@ This is very cool actually. We've got a fully valid basic Blockchain that accept
 
 ### Registering new Nodes
 
+OK, first off, before you start adding new nodes you'd need to let your node to know about his neigbhuring nodes.  This needs to be done before you even start implementing Consensus Algorithm.  Each node on our network needs to keep registry of other nodes on the network.  And therefore we will need to add more endpoints:
+
+1) xxx
+
+2) xxx
+
 xxx
+
+
 
 ### Implementing the Consensus Algorithm
 
