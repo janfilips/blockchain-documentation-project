@@ -99,7 +99,7 @@ def mine():
     block = blockchain.new_block(proof, previous_hash)
 
     response = {
-        'message': "Forged New Block",
+        'message': "Forged new block.",
         'index': block['index'],
         'transactions': block['transactions'],
         'proof': block['proof'],
@@ -126,7 +126,7 @@ def new_transaction():
     response = {
         'message': f'Transaction will be added to the Block {index}',
     }
-    return jsonify(response, 201)
+    return jsonify(response, 200)
 
 @app.route('/chain', methods=['GET'])
 def full_chain():

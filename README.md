@@ -150,6 +150,7 @@ At this point, we're nearly done representing our Blockchain.
 
 So lets talk about how the new blocks are created, forged and mined. :)
 
+
 ### Understanding Proof of Work
 
 A proof of work algorithm are how new Blocks are created or mined on the Blockchain.
@@ -165,8 +166,6 @@ So lets work out some stupid-shit math problem that we are going to require to b
 
 Lets say that hash of some integer ```x``` multiplied by another ```y``` must always end in 0.  So, as an example, the ```hash(x * y) = 4b4f4b4f54...0```.
 
-Lets take this by an example and fix the ```x = 5```.
-
 ```python
 from hashlib import sha256
 
@@ -177,13 +176,15 @@ while sha256(f'{x*y}'.encode()).hexdigest()[-1] != "0": y+1
 print(f'The solution is y = {y})
 ```
 
-The solution in this case is ```y = 21``` since it procuced hash ```0```.
+In this example we fixed the ```x = 5```.
+The solution in this case is ```x = 5 ands y = 21``` since it procuced hash ```0```.
 
 ```python
 hash(5 * 21) = "1253e9373e781b7500266caa55150e08e210bc8cd8cc70d89985e3600155e860"
 ```
 
-In the Bitcoin world, the Proof of Work algorithm is called Hashcash.  And it's not any different from the example above.  It's the very algorithm that miners race to solve in order to create a new block.  The difficulty is of course determined by the number of the characters searched for in the string. In our example we simplified it by defining that the resultant hash must end in 0 to make the whole thing in our case quicker and less resource intensive but this is how it works really.
+In the Bitcoin world, the Proof of Work algorithm is called Hashcash. And it's not any different from the example above.  It's the very algorithm that miners race to solve in order to create a new block.  The difficulty is of course determined by the number of the characters searched for in the string. In our example we simplified it by defining that the resultant hash must end in 0 to make the whole thing in our case quicker and less resource intensive but this is how it works really.
+
 The miners are rewarded for finding a solution by receiving a coin. In a transaction. There are many opinions on effectiness of this but this is how it works. And it really is that simple and this way the network is able to easily verify their solution. :)
 
 ** Editor's note: 4b-4f-4b-4f-54 in the example above in hex translates to = "kokot" lol. :D
@@ -224,6 +225,7 @@ class BlockChain(object):
 To adjust the difficulty of the algorithm, we could modify the number of leading zeors.  But strictly speaking 4 is sufficient enough.  Also, you may find out that adding an extra 0 makes a mammoth difference to the time required to find a solution.
 
 Now, our Blockchain class is pretty much complete, let's begin to interact with the ledger using the HTTP requests.
+
 
 # Step 2: Blockchain as an API
 
@@ -309,9 +311,9 @@ def new_transaction():
 
     # create a new transaction
     index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
-    response = {'message': f'Transaction will be added to the Block {index}'}
+    response = {'message': f'Transaction will be added to the Block {index}.'}
 
-    return jsonify(response, 201)
+    return jsonify(response, 200)
 ```
 
 ### The mining endpoint
@@ -357,7 +359,7 @@ def mine():
     block = blockchain.new_block(proof, previous_hash)
 
     response = {
-        'message': "Forged New Block",
+        'message': "Forged new block.",
         'index': block['index'],
         'transactions': block['transaction'],
         'proof': block['proof'],
@@ -387,7 +389,7 @@ So first off let's try mining a block by making a GET request to the "mine" http
 [
   {
     "index": 1, 
-    "message": "Forged new block", 
+    "message": "Forged new block.", 
     "previous_hash": "7cd122100c9ded644768ccdec2d9433043968352e37d23526f63eefc65cd89e6", 
     "proof": 35293, 
     "transactions": [
@@ -491,7 +493,119 @@ class BlockChain(object):
 
 ### Implementing the Consensus Algorithm
 
+As mentioned, conflict is when one node has a different chain to another node. To resolve this, we'll make the rule that the longest valid chain is authoritative.  In other words, the longest valid chain is de-facto one.  Using this simple rule, we reach Consensuns amongs the nodes in our network.
+
+```python
+import requests
+...
+class BlockChain(object):
+    ...
+    def valid_chain(self, chain):
+        
+        # determine if a given blockchain is valid
+        last_block = chain[0]
+        current_index = 1
+        
+        while current_index < len(chain):
+            block = chain[current_index]
+            # check that the hash of the block is correct
+            if block['previous_hash'] != self.hash(last_block)
+                return False
+            # check that the proof of work is correct
+            if not self.valid_proof(last_block['proof'], block['proof'])
+                return False
+        
+            last_block = block
+            current_index += 1
+
+        return True
+
+    def resolve_conflicts(self):
+        # this is our Consensus Algorithm, it resolves conflicts by replacing
+        # our chain with the longest one in the network.
+
+        neighbours = self.nodes
+        new_chain = None
+
+        # we are only looking for the chains longer than ours
+        max_length = len(self.chain)
+
+        # grab and verify chains from all the nodes in our network
+        for node in neighbours:
+
+            # we utilize our own api to construct the list of chains :)
+            response = request.get(f'http://{node}/chain')
+
+            if response.status_code == 200:
+
+                length = response.json()['length']
+                chain = response.json()['chain']
+                
+                # check if the chain is longer and whether the chain is valid
+                if length > max_length and self.valid_chain(chain):
+                    max_length = length
+                    new_chain = chain
+        
+        # replace our chain if we discover a new longer valid chain
+        if new_chain:
+            self.chain = new_chain
+            return True
+
+        return False
+```
+
+OK so the first method the valid_chain loops through each block and checks that the chain is valid by verifying both the hash and the proof.
+
+The resolve_conflicts method loops through all the neighbouring nodes, downloads their chain and verify them using the above valid_chain method.  If a valid chain is found, and it is longer than ours, we replace our chain with this new one.
+
+So, what is left are the very last two API endpoints, specifically one for adding a neighbouring node and another for resolving the conflicts, and it's quite straight forward:
+
+```python
+@app.route('/miner/register', method=['POST'])
+def register_new_miner():
+    values = request.get_json()
+    
+    # get the list of miner nodes
+    nodes = values.get('nodes')
+    if nodes is None: 
+        return "Error: Please supply list of valid nodes", 400
+
+    # register nodes
+    for node in nodes:
+        blockchain.register_node(node)
+        
+    response = {
+        'message': 'New nodes have been added.',
+        'total_nodes': list(blockchain.nodes),
+    }
+    return jsonify(response), 200
+
+@app.route('/miner/nodes/resolve', method=['POST'])
+def consensus():
+    # an attempt to resolve conflicts to reach the consensus
+    conflicts = blockchain.resolve_conflicts()
+    
+    if(conflicts):
+        response = {
+            'message': 'Our chain was replaced.',
+            'new_chain': blockchain.chain,
+        }
+        return jsonify(response), 200
+    
+    response = {
+        'message': 'Our chain is authoritative.',
+        'chain': blockchain.chain,
+    }
+    return jsonify(response), 200
+```
+
+And here comes the big one, the one you have been waiting for as at this point you can grab a different machine or a computer if you like and spin up different miners on our network. :)  
+
+Or you can run multiple miners on your single machine by running the same process but using a different port number.
+As an example, I can run another miner node on my machine by running it on a different port and register it with the current miner. Therefore I have two miners: http://localhost:5000 and http://localhost:5001.
+
 xxx
+
 
 # Step 5: Transaction verification
 
@@ -500,7 +614,7 @@ For this we will be using Python NaCl to generate a public/private signing key p
 
 # Step 6: Basic contracts (P2P Protocol)
 
-xxx
+This is the cool part xxx
 
 
 # Step 7: Smart wallet
