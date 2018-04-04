@@ -1,4 +1,4 @@
-# Blockchain in Python from scratch
+# How to write Blockchain in Python from scratch
 
 Understanding Blockchain isn't easy. At least it wasn't for me. I had to go through number of frustrations due to too few funcional examples of how this technology works. And I like learning by doing so if you do the same, allow me to guide you and by the end you will have a functioning Blockchain with a solid idea of how they work.
 
