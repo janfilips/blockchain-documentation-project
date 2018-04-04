@@ -463,7 +463,7 @@ This is very cool actually. We've got a fully valid basic Blockchain that accept
 
 ### Registering new Nodes
 
-OK, first off, before you start adding new nodes you'd need to let your node to know about his neigbhuring nodes.  This needs to be done before you even start implementing Consensus Algorithm.  Each node on our network needs to keep registry of other nodes on the network.  And therefore we will need to add more endpoints:
+OK, first off, before you start adding new nodes you'd need to let your node to know about his neighbouring nodes.  This needs to be done before you even start implementing Consensus Algorithm.  Each node on our network needs to keep registry of other nodes on the network.  And therefore we will need to add more endpoints:
 
 1) xxx
 
