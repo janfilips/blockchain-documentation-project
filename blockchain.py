@@ -71,6 +71,11 @@ class BlockChain(object):
         # xxx returns the full chain and a number of blocks
         pass
 
+    # xxx add on the register member here
+
+    # xxx add on the node member here
+
+ 
 
 # initiate the node
 app = Flask(__name__)
