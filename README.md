@@ -604,6 +604,8 @@ And here comes the big one, the one you have been waiting for as at this point y
 Or you can run multiple miners on your single machine by running the same process but using a different port number.
 As an example, I can run another miner node on my machine by running it on a different port and register it with the current miner. Therefore I have two miners: http://localhost:5000 and http://localhost:5001.
 
+### Registering a new node
+
 ```
 $ curl -X POST -H "Content-Type: application/json" -d '{
  "nodes": ["http://127.0.0.1:5001"],
