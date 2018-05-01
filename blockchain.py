@@ -148,7 +148,7 @@ def register_nodes():
     # register each newly added node
     if node in nodes:
         blockchain.register(node)
-    
+
     response = {
         'message': "New nodes have been added",
         'all_nodes': list(blockchain.nodes),
