@@ -140,6 +140,7 @@ def full_chain():
 def register_nodes():
     values = request.get_json()
 
+    print('values',values)
     nodes = values.get('nodes')
     if nodes is None:
         return "Error: Please supply a valid list of nodes", 400
@@ -152,6 +153,9 @@ def register_nodes():
         'message': "New nodes have been added",
         'all_nodes': list(blockchain.nodes),
     }
+
+    return jsonify(response), 201
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
