@@ -649,7 +649,7 @@ Request OK, returns:
             "previous_hash": 1,
             "proof": 100,
             "timestamp": 1525160363.12144,
-            "transactions: [],
+            "transactions": [],
         },
         {
             "index": 2,
@@ -666,7 +666,7 @@ Request OK, returns:
         },
     ]
 }
-`
+```
 
 And that's a wrap... Now go get some friends to mine your Blockchain. :)
 
