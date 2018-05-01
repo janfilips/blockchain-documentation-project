@@ -459,7 +459,17 @@ I have restarted the server, mined two blocks, to give 3 in total.  So let's ins
 }
 ```
 
-# Step 4: Consensus
+# Step 4: Transaction verification
+
+For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime. We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates.
+
+
+# Step 5: Smart wallet
+
+This is very cool. Wallet is a gateway to decentralized applications on the Blockchain. It allows you to hold and secure tokens and other crypto-assets. This Blockchain example is built on ERC-20 standards and therefore should be compatible and working out of the box with your regular wallet. :)
+
+
+# Step 6: Consensus
 
 This is very cool actually. We've got a fully valid basic Blockchain that accepts transactions and allows us to mine a new block (and get rewarded for it).  But the whole point of Blockchains is to be decentralized, and how on earth do we ensure that all the data reflect the same chain?  Well, it's actually a well know problem of Consensus, and we are going to have to implement a Consensus Algorithm if we want more that a single node in our network. So better buckle up, we're moving onto registering the new nodes. :)
 
@@ -618,31 +628,47 @@ Request OK, returned:
     "message": "New nodes have been added.",
     "all_nodes": [
         "127.0.0.1:5001"
-    ],
+    ]
 }
 ```
 
 ### Consensus Algorithm at Work
 
+```
+$ curl http://localhost:5000/nodes/resolve"
+```
 
+Request OK, returns:
 
-xxx
+```json
+{
+    "message": "Our chain was replaced.",
+    "new_chain": [
+        {
+            "index": 1,
+            "previous_hash": 1,
+            "proof": 100,
+            "timestamp": 1525160363.12144,
+            "transactions: [],
+        },
+        {
+            "index": 2,
+            "previous_hash": "7cd122100c9ded644768ccdec2d9433043968352e37d23526f63eefc65cd89e6",
+            "proof": 35293,
+            "timestamp": 1525160706.82745,
+            "transactions": [
+             {
+                 "amount": 1,
+                 "recipient": "a77f5cdfa2934hv25c7c7da5df1f",
+                 "sender": 0,
+             }
+            ]
+        },
+    ]
+}
+`
 
-
-# Step 5: Transaction verification
-
-For this we will be using Python NaCl to generate a public/private signing key pair: private.key, public.key which need to be generated before runtime. We will employ the cryptography using the Public-key signature standards X.509 for Public Key Certificates.
-
-
-# Step 6: Basic contracts (P2P Protocol)
-
-xxx
-
-
-# Step 7: Smart wallet
-
-This is very cool. Wallet is a gateway to decentralized applications on the Blockchain. It allows you to hold and secure tokens and other crypto-assets. This Blockchain example is built on ERC-20 standards and therefore should be compatible and working out of the box with your regular wallet. :)
-
+And that's a wrap... Now go get some friends to mine your Blockchain. :)
 
 
 License
