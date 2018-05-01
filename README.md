@@ -1,5 +1,7 @@
 # Blockchain in Python from scratch
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5e92f10381a14b48914346300782a949)](https://www.codacy.com/app/jparicka/blockchain?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jparicka/blockchain&amp;utm_campaign=Badge_Grade)
+
 Understanding Blockchain isn't easy. At least it wasn't for me. I had to go through number of frustrations due to too few funcional examples of how this technology works. And I like learning by doing so if you do the same, allow me to guide you and by the end you will have a functioning Blockchain with a solid idea of how they work.
 
 ### Before you get started..
