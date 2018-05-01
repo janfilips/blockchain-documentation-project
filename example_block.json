@@ -1,5 +1,6 @@
 {
     'index': 1,
+    'description': 'This would be an example of the blockchain block',
     'timestamp': 1506123125,
     'transactions': [
         {
