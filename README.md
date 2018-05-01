@@ -622,6 +622,8 @@ Request OK, returned:
 }
 ```
 
+### Consensus Algorithm at Work
+
 
 
 xxx
