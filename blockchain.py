@@ -59,7 +59,7 @@ class BlockChain(object):
         while self.validate_proof(last_proof, proof) is False:
             proof += 1
         return proof
-    
+
     @staticmethod
     def validate_proof(last_proof, proof):
         # validates the proof: does hash(last_proof, proof) contain 4 leading zeroes?
@@ -118,8 +118,8 @@ def new_transaction():
 
     # create a new transaction
     index = blockchain.new_transaction(
-        sender = values['sender'], 
-        recipient = values['recipient'], 
+        sender = values['sender'],
+        recipient = values['recipient'],
         amount = values['amount']
     )
 
