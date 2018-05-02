@@ -2,6 +2,7 @@ import hashlib
 import json
 from time import time
 from uuid import uuid4
+from urllib.parse import urlparse
 
 from flask import Flask, jsonify, request
 
@@ -11,6 +12,7 @@ class BlockChain(object):
     def __init__(self):
         self.chain = []
         self.current_transactions = []
+        self.nodes = set()
         # create the genesis block
         self.new_block(previous_hash=1, proof=100)
 
@@ -67,14 +69,14 @@ class BlockChain(object):
         guess_hash = hashlib.sha256(guess).hexdigest()
         return guess_hash[:4] == "0000"
 
+    def register_node(self, address):
+        # add a new node to the list of nodes
+        parsed_url = urlparse(address)
+        self.nodes.add(parsed_url.netloc)
+
     def full_chain(self):
         # xxx returns the full chain and a number of blocks
         pass
-
-    # xxx add on the register member here
-
-    # xxx add on the node member here
-
  
 
 # initiate the node
@@ -151,7 +153,8 @@ def register_nodes():
         return "Error: Please supply a valid list of nodes", 400
 
     # register each newly added node
-    if node in nodes: blockchain.register(node)
+    for node in nodes: 
+        blockchain.register_node(node)
 
     response = {
         'message': "New nodes have been added",
