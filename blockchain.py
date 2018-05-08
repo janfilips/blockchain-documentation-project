@@ -77,7 +77,7 @@ class BlockChain(object):
     def full_chain(self):
         # xxx returns the full chain and a number of blocks
         pass
- 
+
 
 # initiate the node
 app = Flask(__name__)
