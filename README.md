@@ -682,3 +682,5 @@ BSD-2-Clause
 ### Donation Address
 
 ETH: 0x45f5c8b556c3f2887b50184c823d1223f41a4156
+
+Have fun! :)
