@@ -189,8 +189,6 @@ In the Bitcoin world, the Proof of Work algorithm is called Hashcash. And it's n
 
 The miners are rewarded for finding a solution by receiving a coin. In a transaction. There are many opinions on effectiness of this but this is how it works. And it really is that simple and this way the network is able to easily verify their solution. :)
 
-** Editor's note: 4b-4f-4b-4f-54 in the example above in hex translates to = "kokot" lol. :D
-
 
 ### Implementing Proof of Work
 
