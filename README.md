@@ -675,6 +675,12 @@ License
 BSD-2-Clause
 
 
+Can I contribute?
+----
+
+Sure, open an issue, point out errors, and what not. Wanna fix something yourselves, you're welcome to open a PR and I appreciate it.
+
+
 ### Donation Address
 
 ETH: 0xbcFAB06E0cc4Fe694Bdf780F1FcB1bB143bD93Ad
