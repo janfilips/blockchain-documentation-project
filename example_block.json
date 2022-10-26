@@ -1,4 +1,4 @@
-"{
+{
     'index': 1,
     'description': 'This would be an example of the blockchain block',
     'timestamp': 1506123125,
@@ -11,4 +11,4 @@
     ],
     'proof': 324123123774000,
     'previous_hash': "2cf24dba5fbllkj1l2j3lk1j2lk3j12lkj3lj12l3kjl12kj3l12kj3l12kj3lk21jl31kj2"
-}"
+}
